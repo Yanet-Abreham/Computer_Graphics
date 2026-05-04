@@ -5,7 +5,7 @@ import sys
 R, C = 20, 20  # Creates a 20 x 20 maze
 CELL_SIZE = 30
 WIDTH, HEIGHT = C * CELL_SIZE + 40, R * CELL_SIZE + 40 # Calculates the total screen width and height
-FPS = 60 # Controls how smooth the animation is(Frames Per Second)
+FPS = 120 # Controls how smooth the animation is(Frames Per Second)
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -86,6 +86,7 @@ def generate_maze_dynamic():
                 remove_wall(i, j, ni, nj)
             stack.pop() # removes current cell from stack, go back to previous cell
         draw_maze(current_pos=(i, j)) # updates screen
+        pygame.time.delay(30)
         clock.tick(FPS) # controls the speed of the animation
 
 def solve_maze_dynamic(start, end): # find a path from start to end
@@ -123,7 +124,7 @@ generate_maze_dynamic()
 start = (random.randint(0, R-1), 0) # Chooses a random starting point on the left edge
 end = (random.randint(0, R-1), C-1) # Chooses a random ending point on the right edge
 east_wall[start[0]][0] = 0 # Creates an entry wall by removing left wall
-east_wall[end[0]][C-1] = 0 # Creates an exit wall by removing right wall
+east_wall[end[0]][C] = 0 # Creates an exit wall by removing right wall
 solve_maze_dynamic(start, end) 
 while True:
     for event in pygame.event.get():
