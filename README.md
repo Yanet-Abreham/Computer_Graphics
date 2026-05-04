@@ -1,3 +1,7 @@
+🎥 Demo Video
+
+https://www.loom.com/share/84a11bb77a234249b8828f8161452b2d
+
 🧩 Maze Generator & Solver
 
 Generates a random 20×20 maze using DFS and backtracking, then solves it
@@ -52,3 +56,5 @@ coordinate system.
 ```bash
 pip install pygame
 python main.py
+
+
