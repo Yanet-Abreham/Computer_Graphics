@@ -14,7 +14,7 @@ Walls are stored in two 2D arrays:
 - `north_wall[R+1][C]` — horizontal walls (top/bottom edges of each cell)
 - `east_wall[R][C+1]` — vertical walls (left/right edges of each cell)
 
-Every wall starts as `1` (intact). Generation knocks them down as paths open up.
+Every wall starts as `1` (intact). The generation knocks them down as paths open up.
 
 The algorithm starts from a random cell and uses a stack to drive the DFS:
 
@@ -23,7 +23,7 @@ The algorithm starts from a random cell and uses a stack to drive the DFS:
 3. If no unvisited neighbors exist, pop the stack and backtrack.
 4. Repeat until the stack is empty — meaning every cell has been visited.
 
-There's also a small 5% chance that an extra wall gets removed during backtracking, 
+There's also a small 5%(0.05) chance that an extra wall gets removed during backtracking, 
 which punches in a few extra paths and makes the maze less trivially solvable.
 
 🧭 How it's solved
@@ -38,8 +38,8 @@ targeting a random cell on the right edge:
 
 🎨 Visualization
 
-The screen updates every frame during both generation and solving. Here's what each visual 
-element means:
+The screen updates every frame during both generation and solving.
+Here's what each visual element means:
 
 | Element | Meaning |
 |---|---|
